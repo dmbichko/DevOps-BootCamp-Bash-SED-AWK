@@ -10,6 +10,6 @@ sed -i '/avahi/s/\/usr\/sbin\/nologin/\/bin\/bash/' passwd_new
 awk 'BEGIN{FS=":"; OFS=":"} {print $1,$3,$5,$7}' passwd_new > tmp && mv tmp passwd_new
 #e
 sed -i '/daemon/d' passwd_new
-
-
-# Put you code here
+#f
+awk 'BEGIN{OFS=FS=":"}$2%2==0{$7="/bin/zsh"}{print}' passwd_new > tmp && mv tmp passwd_new
+	# Put you code here
